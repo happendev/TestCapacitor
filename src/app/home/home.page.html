@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Test Cap
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,13 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>This is a TEST APP!!!!!!!!!!</strong>
+    <p>Testing out Ionic, PWA & Capacitor stuff...</p>
+    <p>Current platform: <strong>{{platform}}</strong></p>
+
+    <div style='margin-top:2rem'>
+      <ion-button color="primary" (click)='locate()'>Locate me</ion-button>
+      <p>Location is: {{gps.lastKnownLatitude}}, {{gps.lastKnownLongitude}}</p>
+    </div>
   </div>
 </ion-content>
