@@ -1,5 +1,3 @@
-/// <reference types="@capacitor/local-notifications" />
-/// <reference types="@capacitor/push-notifications" />
 /// <reference types="@capacitor/splash-screen" />
 
 import { CapacitorConfig } from '@capacitor/cli';
@@ -11,7 +9,7 @@ const config: CapacitorConfig = {
   plugins: {
     SplashScreen: {
       launchShowDuration: 3000,
-      launchAutoHide: true,
+      launchAutoHide: false,
       showSpinner: true,
       androidSpinnerStyle: 'large',
       iosSpinnerStyle: 'small',
