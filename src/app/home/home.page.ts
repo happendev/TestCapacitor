@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
+import { ServiceWorkerUpdateService } from 'src/services/service-worker-update-service';
 import { AppLocation } from 'src/utils/app-location';
 import { DeviceInfo } from 'src/utils/device-info';
 import { PopupHelper } from 'src/utils/popup-helper';
@@ -9,7 +10,7 @@ import { PopupHelper } from 'src/utils/popup-helper';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   platform: string;
   location: string;
 
@@ -18,9 +19,16 @@ export class HomePage {
   constructor(
     private device: DeviceInfo,
     private popup: PopupHelper,
-    public gps: AppLocation
+    public gps: AppLocation,
+    private updateService: ServiceWorkerUpdateService
   ) {
     this.platform = this.device.platform;
+  }
+
+  ngOnInit() {
+    // this.updateService.init();
+    // // hide the splash when we are finished loading
+    // SplashScreen.hide();
   }
 
   locate() {
@@ -30,7 +38,7 @@ export class HomePage {
   async takePhoto() {
     const image = await Camera.getPhoto({
       quality: 60,
-      allowEditing: true,
+      allowEditing: false,
       resultType: CameraResultType.Uri,
     });
 

@@ -8,7 +8,15 @@ const config: CapacitorConfig = {
   appId: 'zone.happen.testcap',
   appName: 'TestCap',
   webDir: 'www',
-  plugins: {},
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 3000,
+      launchAutoHide: true,
+      showSpinner: true,
+      androidSpinnerStyle: 'large',
+      iosSpinnerStyle: 'small',
+    },
+  },
   server: {
     url: 'https://testapp.happen.zone',
   },
