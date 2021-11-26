@@ -1,6 +1,5 @@
-package io.ionic.starter;
+package zone.happen.testcap;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.webkit.ServiceWorkerClient;
 import android.webkit.ServiceWorkerController;
