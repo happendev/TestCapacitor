@@ -13,5 +13,8 @@
 	},
 	"server": {
 		"url": "https://testapp.happen.zone"
+	},
+	"ios": {
+		"limitsNavigationsToAppBoundDomains": true
 	}
 }

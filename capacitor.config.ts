@@ -18,6 +18,9 @@ const config: CapacitorConfig = {
   server: {
     url: 'https://testapp.happen.zone',
   },
+  ios:{
+    limitsNavigationsToAppBoundDomains: true
+  }
 };
 
 export default config;
