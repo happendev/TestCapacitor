@@ -11,19 +11,16 @@ import { PopupHelper } from 'src/utils/popup-helper';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  platform: string;
   location: string;
 
   photoPath: string;
 
   constructor(
-    private device: DeviceInfo,
+    public device: DeviceInfo,
     private popup: PopupHelper,
     public gps: AppLocation,
     private updateService: ServiceWorkerUpdateService
-  ) {
-    this.platform = this.device.platform;
-  }
+  ) {}
 
   ngOnInit() {
     // this.updateService.init();
