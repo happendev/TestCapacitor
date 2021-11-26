@@ -1,6 +1,9 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "zone.happen.testcap",
 	"appName": "TestCap",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"plugins": {},
+	"server": {
+		"url": "https://testapp.happen.zone"
+	}
 }
