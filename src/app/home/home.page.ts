@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { ServiceWorkerUpdateService } from 'src/services/service-worker-update-service';
 import { AppLocation } from 'src/utils/app-location';
 import { DeviceInfo } from 'src/utils/device-info';
@@ -23,9 +24,9 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.updateService.init();
+    this.updateService.init();
     // // hide the splash when we are finished loading
-    // SplashScreen.hide();
+    SplashScreen.hide();
   }
 
   locate() {
