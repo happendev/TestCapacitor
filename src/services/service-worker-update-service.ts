@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { App } from '@capacitor/app';
 import { ToastController } from '@ionic/angular';
+import { DeviceInfo } from 'src/utils/device-info';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceWorkerUpdateService {
-  constructor(private updates: SwUpdate, private toast: ToastController) {}
+  constructor(
+    private updates: SwUpdate,
+    private toast: ToastController,
+    private device: DeviceInfo
+  ) {}
 
   init() {
     // when service worker registers itself, it will automatically check for updates
@@ -17,16 +22,20 @@ export class ServiceWorkerUpdateService {
     });
 
     // if the app becomes active (from background), check if there is an update available
-    App.addListener('appStateChange', ({ isActive }) => {
-      console.log('App state changed. Is active?', isActive);
-      if (isActive) {
-        this.updates.checkForUpdate();
-      }
-    });
+    if (this.device.isNative) {
+      App.addListener('appStateChange', ({ isActive }) => {
+        console.log('App state changed. Is active?', isActive);
+        if (isActive) {
+          this.updates.checkForUpdate();
+        }
+      });
+    }
 
     // run timer to check for updates on the service worker every minute
     setInterval(() => {
-      this.updates.checkForUpdate();
+      if (this.updates.isEnabled) {
+        this.updates.checkForUpdate();
+      }
     }, 60000);
   }
 

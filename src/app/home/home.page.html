@@ -23,5 +23,11 @@
       <ion-button color="primary" (click)='locate()'>Locate me</ion-button>
       <p>Location is: {{gps.lastKnownLatitude}}, {{gps.lastKnownLongitude}}</p>
     </div>
+
+    <div style='margin-top:2rem'>
+      <ion-button color="primary" (click)='takePhoto()'>Take photo</ion-button>
+      <br>
+      <img [src]='photoPath | safeUrl' *ngIf='photoPath?.length > 0' style='width:400px; height:400px; object-fit: contain;'>
+    </div>
   </div>
 </ion-content>
