@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
-import { PopupHelper } from './popup-helper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppLocation {
-  constructor(private popup: PopupHelper) {}
+  constructor() {}
 
   public lastKnownLatitude = 0;
   public lastKnownLongitude = 0;
 
   async locate() {
-    this.popup.showToast('Locating with plugin');
     const coordinates = await Geolocation.getCurrentPosition();
     console.log('Current position:', coordinates);
 

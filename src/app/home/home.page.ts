@@ -4,7 +4,6 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { ServiceWorkerUpdateService } from 'src/services/service-worker-update-service';
 import { AppLocation } from 'src/utils/app-location';
 import { DeviceInfo } from 'src/utils/device-info';
-import { PopupHelper } from 'src/utils/popup-helper';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +17,6 @@ export class HomePage implements OnInit {
 
   constructor(
     public device: DeviceInfo,
-    private popup: PopupHelper,
     public gps: AppLocation,
     public updateService: ServiceWorkerUpdateService
   ) {}
