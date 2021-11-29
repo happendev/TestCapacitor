@@ -56,4 +56,8 @@ export class ServiceWorkerUpdateService {
 
     window.location.reload(); // on toast dismiss, restart app's webview with new version
   }
+
+  public get isEnabled() {
+    return this.updates.isEnabled;
+  }
 }

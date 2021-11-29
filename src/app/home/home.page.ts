@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
     public device: DeviceInfo,
     private popup: PopupHelper,
     public gps: AppLocation,
-    private updateService: ServiceWorkerUpdateService
+    public updateService: ServiceWorkerUpdateService
   ) {}
 
   ngOnInit() {
