@@ -64,6 +64,7 @@
 	<true/>
 	<key>WKAppBoundDomains</key>
 	<array>
+		<string>localhost</string>
 		<string>happen.zone</string>
 		<string>testapp.happen.zone</string>
 	</array>
