@@ -18,7 +18,9 @@ export class ServiceWorkerUpdateService {
     // when service worker registers itself, it will automatically check for updates
     // subscribe to handle what to do when an update is available
     this.updates.versionUpdates.subscribe((event) => {
-      void this.presentUpdateToast();
+      if (event.type === 'VERSION_READY') {
+        void this.presentUpdateToast();
+      }
     });
 
     // if the app becomes active (from background), check if there is an update available
