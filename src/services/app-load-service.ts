@@ -17,26 +17,16 @@ export class AppLoadService {
   async initApp(): Promise<any> {
     await this.platform.ready();
 
-    // setup storage
+    // run other setup tasks
 
-    // await this.setupWeb();
-    // await this.setupNative();
-  }
-
-  private async setupWeb() {
-    if (!this.device.isNative) {
+    try {
+      // init sw update checks
       this.updateService.init();
-    }
-  }
 
-  private async setupNative() {
-    if (this.device.isNative) {
-      setTimeout(() => {
-        this.updateService.init();
-
-        // hide the splash when we are finished loading
-        SplashScreen.hide();
-      }, 5000);
+      // hide the splash when we are finished loading
+      SplashScreen.hide();
+    } catch (err) {
+      console.error(err);
     }
   }
 }

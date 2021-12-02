@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
-import { SplashScreen } from '@capacitor/splash-screen';
 import { VERSION } from 'src/environments/version';
 import { ServiceWorkerUpdateService } from 'src/services/service-worker-update-service';
 import { AppLocation } from 'src/utils/app-location';
@@ -22,11 +21,7 @@ export class HomePage implements OnInit {
     public updateService: ServiceWorkerUpdateService
   ) {}
 
-  ngOnInit() {
-    this.updateService.init();
-    // // hide the splash when we are finished loading
-    SplashScreen.hide();
-  }
+  ngOnInit() {}
 
   locate() {
     this.gps.locate();
