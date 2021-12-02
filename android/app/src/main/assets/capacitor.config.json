@@ -11,9 +11,7 @@
 			"iosSpinnerStyle": "small"
 		}
 	},
-	"server": {
-		"url": "https://testapp.happen.zone"
-	},
+	"server": {},
 	"ios": {
 		"limitsNavigationsToAppBoundDomains": true
 	}

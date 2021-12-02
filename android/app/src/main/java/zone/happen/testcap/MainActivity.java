@@ -13,7 +13,7 @@ public class MainActivity extends BridgeActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    ServiceWorkerController swController = ServiceWorkerController.getInstance();
+   /* ServiceWorkerController swController = ServiceWorkerController.getInstance();
 
     swController.setServiceWorkerClient(new ServiceWorkerClient() {
       @Override
@@ -21,5 +21,6 @@ public class MainActivity extends BridgeActivity {
         return bridge.getLocalServer().shouldInterceptRequest(request);
       }
     });
+    */
   }
 }
