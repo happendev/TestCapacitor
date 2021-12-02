@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { SplashScreen } from '@capacitor/splash-screen';
+import { VERSION } from 'src/environments/version';
 import { ServiceWorkerUpdateService } from 'src/services/service-worker-update-service';
 import { AppLocation } from 'src/utils/app-location';
 import { DeviceInfo } from 'src/utils/device-info';
@@ -12,7 +13,7 @@ import { DeviceInfo } from 'src/utils/device-info';
 })
 export class HomePage implements OnInit {
   location: string;
-
+  version = VERSION;
   photoPath: string;
 
   constructor(

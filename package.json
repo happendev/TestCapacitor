@@ -7,9 +7,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prebuild": "node environments/prebuild.ts",
+    "preprod": "node environments/prebuild.ts"
   },
   "private": true,
   "dependencies": {
