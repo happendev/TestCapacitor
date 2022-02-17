@@ -8,6 +8,8 @@ import { DeviceInfo } from 'src/utils/device-info';
   providedIn: 'root',
 })
 export class ServiceWorkerUpdateService {
+  public swReady = false;
+
   constructor(
     private updates: SwUpdate,
     private toast: ToastController,
@@ -15,6 +17,26 @@ export class ServiceWorkerUpdateService {
   ) {}
 
   init() {
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.ready.then(() => {
+        this.swReady = true;
+
+        // if (
+        //   Capacitor.isNativePlatform() &&
+        //   Capacitor.getPlatform() === 'android'
+        // ) {
+        //   const reboot = localStorage.getItem('reboot');
+        //   if (reboot !== '1') {
+        //     localStorage.setItem('reboot', '1');
+        //     console.log('forcing reload for capacitor as SW is ready');
+        //     setTimeout(() => window.location.reload(), 3000);
+        //   } else {
+        //     localStorage.setItem('reboot', '0');
+        //   }
+        // }
+      });
+    }
+
     // when service worker registers itself, it will automatically check for updates
     // subscribe to handle what to do when an update is available
     this.updates.versionUpdates.subscribe((event) => {
