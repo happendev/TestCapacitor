@@ -78,6 +78,7 @@ export class ServiceWorkerUpdateService {
     await toast.present();
     await toast.onDidDismiss();
 
+    await this.updates.activateUpdate();
     window.location.reload(); // on toast dismiss, restart app's webview with new version
   }
 
