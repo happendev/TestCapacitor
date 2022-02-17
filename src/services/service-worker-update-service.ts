@@ -38,7 +38,7 @@ export class ServiceWorkerUpdateService {
       if (this.updates.isEnabled) {
         this.updates.checkForUpdate();
       }
-    }, 60000);
+    }, 30000);
   }
 
   private async presentUpdateToast() {
